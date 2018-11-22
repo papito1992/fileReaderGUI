@@ -1,0 +1,15 @@
+<div style="text-align: center; padding: 50px">
+
+<button mat-button class="button btn-success" *ngIf='!showFile' (click)='showFiles(true)'>Sorted Files</button>
+<button mat-button class="button btn-warning" *ngIf='showFile' (click)='showFiles(false)'>Hide Files</button>
+
+<div [hidden]="!showFile">
+  <div class="panel panel-primary">
+    <div *ngFor="let file of fileUps | async">
+      <div class="panel-body">
+        <app-details-up [fileUpload]='file' type=".txt"></app-details-up>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
